@@ -1,4 +1,4 @@
-describe('Render tasks from Camunda and manage them on task management and details Page', () => {
+describe('Render tasks from Camunda and manage them on task details Page', () => {
   beforeEach(() => {
     cy.fixture('users/cypressuser@lodev.xyz.json').then((user) => {
       cy.login(user.username);

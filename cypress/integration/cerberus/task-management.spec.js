@@ -1,7 +1,7 @@
 /// <reference types="Cypress"/>
 /// <reference path="../support/index.d.ts" />
 
-describe('Render tasks from Camunda and manage them on task management and details Page', () => {
+describe('Render tasks from Camunda and manage them on task management page', () => {
   const MAX_TASK_PER_PAGE = 10;
 
   beforeEach(() => {
@@ -94,7 +94,7 @@ describe('Render tasks from Camunda and manage them on task management and detai
 
     cy.get('.pagination--list a').eq(1).click();
 
-    cy.get('.govuk-grid-row a[href="/tasks/aeefd530-a1c3-11eb-a5ca-2647970c238c"]')
+    cy.get('.govuk-grid-row a[href="/tasks/bbaa294c-a2a0-11eb-a5ca-2647970c238c"]')
       .parentsUntil('.task-list--item').within(() => {
         cy.get('button.link-button')
           .should('have.text', 'Unclaim')
@@ -107,7 +107,7 @@ describe('Render tasks from Camunda and manage them on task management and detai
 
     cy.wait(2000);
 
-   cy.get('.govuk-grid-row a[href="/tasks/aeefd530-a1c3-11eb-a5ca-2647970c238c"]')
+   cy.get('.govuk-grid-row a[href="/tasks/bbaa294c-a2a0-11eb-a5ca-2647970c238c"]')
       .parentsUntil('.task-list--item').within(() => {
         cy.get('button.link-button')
           .should('have.text', 'Claim')
