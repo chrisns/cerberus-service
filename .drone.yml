@@ -159,8 +159,6 @@ steps:
     DOCKER_USERNAME:
       from_secret: QUAY_USERNAME
   when:
-    branch:
-      - main
     event:
       - push
 
