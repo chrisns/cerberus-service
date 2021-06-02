@@ -160,7 +160,7 @@ steps:
       from_secret: QUAY_USERNAME
   when:
     branch:
-      - master
+      - main
     event:
       - push
 
