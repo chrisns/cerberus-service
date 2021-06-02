@@ -69,7 +69,7 @@ sendSlackMessage()
 						\"fallback\": \"${SLACK_FALLBACK}\",
 						\"text\": \"${SLACK_TEXT}\",
 						\"color\": \"${SLACK_COLOR}\",
-						\"title\": \"sGMR Test Report\",
+						\"title\": \"Cerberus Test Report\",
 						\"title_link\": \"${REPORT_FULL_URL}\",
 						\"mrkdwn_in\": [\"text\", \"pretext\"]
 					}
