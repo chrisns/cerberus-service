@@ -257,7 +257,7 @@ steps:
     KUBE_TOKEN:
       from_secret: DEV_CERBERUS_KUBE_TOKEN
     CERBERUS_UI_NAME: cerberus-ui-service
-    CRON_SCHEDULE: "\"10 18 * * 1-5\""
+    CRON_SCHEDULE: "\"10 10 9-17 * * 1-5\""
     JOB_NAME: "\"cerberus-functional-tests\""
   when:
     event:

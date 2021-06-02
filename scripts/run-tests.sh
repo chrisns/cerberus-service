@@ -61,8 +61,8 @@ sendSlackMessage()
 {
     curl -X POST --data-urlencode \
     "payload={
-           \"channel\": \"#cop-deployments\",
-           \"username\": \"Formio Tests\",
+           \"channel\": \"#cop-test-report\",
+           \"username\": \"Cerberus Tests\",
            \"attachments\":
                 [
 					{
@@ -89,3 +89,4 @@ runTestsAndGenerateReport
 uploadReport
 createReportUrl
 createSlackMessage
+sendSlackMessage
