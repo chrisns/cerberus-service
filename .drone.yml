@@ -261,6 +261,7 @@ steps:
     CERBERUS_UI_NAME: cerberus-ui-service
     CRON_SCHEDULE: "\"10 9-17 * * 1-5\""
     JOB_NAME: "\"cerberus-functional-tests\""
+  when:
     branch:
       - main
     event:
