@@ -16,6 +16,6 @@ RUN mkdir ~/.npm ; \
     npm config set prefix ~/.npm ; \
     echo 'export PATH="$PATH:$HOME/.npm/bin"' >> ~/.bashrc ; \
     export PATH="$PATH:$HOME/.npm/bin" ; \
-    npm install
+    npm ci
 
 ENTRYPOINT ["/bin/bash", "/cerberus-service/scripts/run-tests.sh"]
