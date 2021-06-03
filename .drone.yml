@@ -160,9 +160,10 @@ steps:
       from_secret: QUAY_USERNAME
   when:
     branch:
-      - main
+      exclude:
+       - main
     event:
-      - push
+       - push
 
 - name: deploy_to_dev
   pull: if-not-exists
@@ -263,9 +264,10 @@ steps:
     JOB_NAME: "\"cerberus-functional-tests\""
   when:
     branch:
-      - main
+      exclude:
+       - main
     event:
-      - push
+       - push
 
 
 - name: deploy_to_sit

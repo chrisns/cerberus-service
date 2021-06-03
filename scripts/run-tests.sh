@@ -90,3 +90,4 @@ uploadReport
 createReportUrl
 createSlackMessage
 sendSlackMessage
+checkFailTest
