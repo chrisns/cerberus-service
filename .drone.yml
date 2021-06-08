@@ -231,7 +231,7 @@ steps:
       from_secret: SIT_CERBERUS_SERVICE_URL
   when:
     branch:
-    - main
+    - test-release
     event:
     - promote
     target:
@@ -278,7 +278,7 @@ steps:
       from_secret: STAGING_CERBERUS_SERVICE_URL
   when:
     branch:
-    - main
+    - test-release
     event:
     - promote
     target:
