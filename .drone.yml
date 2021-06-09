@@ -142,6 +142,7 @@ steps:
   when:
     branch:
     - main
+    - release-candidate
     event:
     - push
 
@@ -231,7 +232,7 @@ steps:
       from_secret: SIT_CERBERUS_SERVICE_URL
   when:
     branch:
-    - main
+    - release-candidate
     event:
     - promote
     target:
@@ -278,7 +279,7 @@ steps:
       from_secret: STAGING_CERBERUS_SERVICE_URL
   when:
     branch:
-    - main
+    - release-candidate
     event:
     - promote
     target:
