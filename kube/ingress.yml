@@ -19,7 +19,7 @@ spec:
       paths:
       - backend:
           serviceName: cerberus-ui-service
-          servicePort: 10443
+          servicePort: https
   tls:
   - hosts:
     - {{.CERBERUS_UI_URL}}
