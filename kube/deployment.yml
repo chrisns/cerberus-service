@@ -2,13 +2,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{.CERBERUS_UI_NAME}}
+  name: cerberus-ui-service
   labels:
-    service: {{.CERBERUS_UI_NAME}}
+    service: cerberus-ui-service
 spec:
   selector:
     matchLabels:
-      name: {{.CERBERUS_UI_NAME}}
+      name: cerberus-ui-service
   replicas: 3
   revisionHistoryLimit: 3
   minReadySeconds: 5
@@ -20,8 +20,8 @@ spec:
   template:
     metadata:
       labels:
-        name: {{.CERBERUS_UI_NAME}}
-        service: {{.CERBERUS_UI_NAME}}
+        name: cerberus-ui-service
+        service: cerberus-ui-service
     spec:
       restartPolicy: Always
       containers:
@@ -52,8 +52,8 @@ spec:
         volumeMounts:
           - name: certs
             mountPath: /certs
-      - name: {{.CERBERUS_UI_NAME}}
-        image: {{.CERBERUS_UI_IMAGE}}:{{.CERBERUS_UI_TAG}}
+      - name: ui
+        image: quay.io/ukhomeofficedigital/cerberus-ui-service:{{.CERBERUS_UI_TAG}}
         imagePullPolicy: Always
         securityContext:
           runAsUser: 100
@@ -73,7 +73,7 @@ spec:
               - wget -O - localhost:8080/camunda 2>&1| grep "HTTP/1.1 401"
         ports:
           - name: frontend
-            containerPort: {{.CERBERUS_UI_PORT}}
+            containerPort: 8080
         env:
           - name: KEYCLOAK_AUTH_URL
             value: "https://{{.KEYCLOAK_AUTH_URL}}"
@@ -92,4 +92,4 @@ spec:
       volumes:
       - name: certs
         secret:
-          secretName: "{{.CERBERUS_UI_NAME}}-pod-cmio"
+          secretName: "cerberus-ui-service-pod-cmio"

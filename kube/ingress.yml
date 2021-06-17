@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: {{.CERBERUS_UI_NAME}}
+  name: cerberus-ui-service
   labels:
     cert-manager.io/solver: http01
   annotations:
@@ -18,7 +18,7 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: {{.CERBERUS_UI_NAME}}
+          serviceName: cerberus-ui-service
           servicePort: 10443
   tls:
   - hosts:
