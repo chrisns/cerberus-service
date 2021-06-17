@@ -17,9 +17,15 @@ spec:
   - host: {{.CERBERUS_UI_URL}}
     http:
       paths:
-      - backend:
+      - path: /
+        backend:
           serviceName: cerberus-ui-service
           servicePort: https
+      - path: /camunda
+        backend:
+          serviceName: @TODO:SERVICE_NAME
+          servicePort: https
+
   tls:
   - hosts:
     - {{.CERBERUS_UI_URL}}
