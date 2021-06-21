@@ -8,6 +8,8 @@ platform:
   arch: amd64
 
 steps:
+  # TODO: what is the sync secrets thing actually doing?
+
   - name: synch_dev_secrets
     pull: if-not-exists
     image: quay.io/ukhomeofficedigital/cop-secrets
@@ -105,7 +107,7 @@ steps:
       event:
         - push
 
-  - name: build
+  - name: build # seems redundant since the image_to_quay does the same thing?
     pull: always
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
     commands:
@@ -149,7 +151,7 @@ steps:
     image: plugins/docker
     settings:
       registry: quay.io
-      repo: quay.io/ukhomeofficedigital/cerberus-ui-service
+      repo: quay.io/ukhomeofficedigital/cerberus-ui-service # TODO: misleading might be better on a different repo
       dockerfile: cron-Dockerfile
       tags:
         - cron-${DRONE_COMMIT_SHA}
