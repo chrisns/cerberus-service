@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - cronjob.yml
+
+secretGenerator:
+  - envs:
+      - cronjob-secret.env
+    name: cronjob-secret
+    type: Opaque
+
+images:
+  - name: quay.io/ukhomeofficedigital/cerberus-ui-service
+    newTag: TODO #TODO: cron-${DRONE_COMMIT_SHA}
