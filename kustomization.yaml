@@ -16,3 +16,12 @@ secretGenerator:
 configMapGenerator:
   - name: config
     env: kube/config.env
+
+vars:
+  - name: CERBERUS_UI_URL
+    objref:
+      kind: ConfigMap
+      name: config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.CERBERUS_UI_URL
