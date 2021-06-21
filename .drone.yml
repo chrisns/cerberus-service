@@ -208,11 +208,10 @@ steps:
 
   - name: create_testjob_dev
     pull: always
-    image: quay.io/ukhomeofficedigital/kd
+    image: bitnami/kubectl:1.20.8
     commands:
-      - export AUTH_URL="$${PROTOCOL_HTTPS}$${DEV_KEYCLOAK_URL}"
-      - kd --insecure-skip-tls-verify -f kube/secret.yml
-      - kd --insecure-skip-tls-verify -f kube/cronjob.yml
+      - export AUTH_URL="https://$${DEV_KEYCLOAK_URL}"
+      - kubectl apply --insecure-skip-tls-verify -k kube-tests
     environment:
       AUTH_REALM:
         from_secret: DEV_KEYCLOAK_REALM
@@ -228,8 +227,6 @@ steps:
         from_secret: DEV_FORMIO_INT_TEST_SECRET_AWS_ACCESS_KEY_ID
       AWS_SECRET_ACCESS_KEY:
         from_secret: DEV_FORMIO_INT_TEST_SECRET_AWS_SECRET_ACCESS_KEY
-      PROTOCOL_HTTPS:
-        from_secret: PROTOCOL_HTTPS
       REPORT_BASE_URL:
         from_secret: TESTS_REPORT_BASE_URL
       S3_ACCESS_KEY:
