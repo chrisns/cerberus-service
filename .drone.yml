@@ -255,7 +255,6 @@ steps:
       KUBE_TOKEN:
         from_secret: DEV_CERBERUS_KUBE_TOKEN
       CERBERUS_SERVICE_TEST_TAG: cron-${DRONE_COMMIT_SHA}
-      CRON_SCHEDULE: '"10 8-17/1 * * 1-5"'
       JOB_NAME: '"cerberus-functional-tests"'
     when:
       branch:
