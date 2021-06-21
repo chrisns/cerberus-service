@@ -210,9 +210,7 @@ steps:
     pull: always
     image: quay.io/ukhomeofficedigital/kd
     commands:
-      - export CYPRESS_CACHE_FOLDER="~/.cache/Cypress"
       - export AUTH_URL="$${PROTOCOL_HTTPS}$${DEV_KEYCLOAK_URL}"
-      - export NAME="cerberus-functional-tests"
       - kd --insecure-skip-tls-verify -f kube/secret.yml
       - kd --insecure-skip-tls-verify -f kube/cronjob.yml
     environment:

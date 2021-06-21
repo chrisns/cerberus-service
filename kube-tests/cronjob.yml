@@ -18,9 +18,13 @@ spec:
               envFrom:
                 - secretRef:
                     name: cronjob-secret
+                - configMapRef:
+                    name: cronjob-config
               env:
                 - name: JOB_NAME
                   value: cerberus-functional-tests
+                - name: CYPRESS_CACHE_FOLDER
+                  value: '~/.cache/Cypress'
               securityContext:
                 runAsNonRoot: true
                 runAsUser: 1000
