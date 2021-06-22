@@ -26,7 +26,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: ui
-          image: quay.io/ukhomeofficedigital/cerberus-ui-service:{{.CERBERUS_UI_TAG}}
+          image: quay.io/ukhomeofficedigital/cerberus-ui-service:$(CERBERUS_UI_TAG)
           imagePullPolicy: Always
           securityContext:
             runAsUser: 101
@@ -62,4 +62,4 @@ spec:
       volumes:
         - name: certs
           secret:
-            secretName: 'cerberus-ui-service-pod-cmio'
+            secretName: cerberus-ui-service-pod-cmio

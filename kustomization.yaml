@@ -25,3 +25,13 @@ vars:
       apiVersion: v1
     fieldref:
       fieldpath: data.CERBERUS_UI_URL
+  - name: CERBERUS_UI_TAG
+    objref:
+      kind: ConfigMap
+      name: config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.CERBERUS_UI_TAG
+
+configurations:
+  - kube/kustomizeconfig.yaml
