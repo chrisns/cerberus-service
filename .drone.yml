@@ -168,15 +168,11 @@ steps:
 
   - name: deploy_to_dev
     pull: if-not-exists
-    image: quay.io/ukhomeofficedigital/kd
+    image: bitnami/kubectl:1.20.8
     commands:
-      - export CERBERUS_UI_TAG=$${DRONE_COMMIT_SHA}
-      - kd --insecure-skip-tls-verify -f kube/cert.yml
-      - kd --insecure-skip-tls-verify -f kube/network-policy.yml
-      - kd --insecure-skip-tls-verify -f kube/service.yml
-      - kd --insecure-skip-tls-verify -f kube/deployment.yml --timeout=5m
-      - kd --insecure-skip-tls-verify -f kube/ingress.yml
+      - kubectl apply --insecure-skip-tls-verify -k .
     environment:
+      CERBERUS_UI_TAG: ${DRONE_COMMIT_SHA}
       DEPLOY_ENV: dev
       KEYCLOAK_AUTH_URL:
         from_secret: DEV_KEYCLOAK_URL
@@ -257,15 +253,11 @@ steps:
 
   - name: deploy_to_sit
     pull: if-not-exists
-    image: quay.io/ukhomeofficedigital/kd
+    image: bitnami/kubectl:1.20.8
     commands:
-      - export CERBERUS_UI_TAG=$${DRONE_COMMIT_SHA}
-      - kd --insecure-skip-tls-verify -f kube/cert.yml
-      - kd --insecure-skip-tls-verify -f kube/network-policy.yml
-      - kd --insecure-skip-tls-verify -f kube/service.yml
-      - kd --insecure-skip-tls-verify -f kube/deployment.yml --timeout=5m
-      - kd --insecure-skip-tls-verify -f kube/ingress.yml
+      - kubectl apply --insecure-skip-tls-verify -k .
     environment:
+      CERBERUS_UI_TAG: ${DRONE_COMMIT_SHA}
       DEPLOY_ENV: sit
       KEYCLOAK_AUTH_URL:
         from_secret: SIT_KEYCLOAK_URL
@@ -297,15 +289,11 @@ steps:
 
   - name: deploy_to_staging
     pull: if-not-exists
-    image: quay.io/ukhomeofficedigital/kd
+    image: bitnami/kubectl:1.20.8
     commands:
-      - export CERBERUS_UI_TAG=$${DRONE_COMMIT_SHA}
-      - kd --insecure-skip-tls-verify -f kube/cert.yml
-      - kd --insecure-skip-tls-verify -f kube/network-policy.yml
-      - kd --insecure-skip-tls-verify -f kube/service.yml
-      - kd --insecure-skip-tls-verify -f kube/deployment.yml --timeout=5m
-      - kd --insecure-skip-tls-verify -f kube/ingress.yml
+      - kubectl apply --insecure-skip-tls-verify -k .
     environment:
+      CERBERUS_UI_TAG: ${DRONE_COMMIT_SHA}
       DEPLOY_ENV: staging
       KEYCLOAK_AUTH_URL:
         from_secret: STAGING_KEYCLOAK_URL
@@ -337,15 +325,11 @@ steps:
 
   - name: deploy_to_production
     pull: if-not-exists
-    image: quay.io/ukhomeofficedigital/kd
+    image: bitnami/kubectl:1.20.8
     commands:
-      - export CERBERUS_UI_TAG=$${DRONE_COMMIT_SHA}
-      - kd --insecure-skip-tls-verify -f kube/cert.yml
-      - kd --insecure-skip-tls-verify -f kube/network-policy.yml
-      - kd --insecure-skip-tls-verify -f kube/service.yml
-      - kd --insecure-skip-tls-verify -f kube/deployment.yml --timeout=5m
-      - kd --insecure-skip-tls-verify -f kube/ingress.yml
+      - kubectl apply --insecure-skip-tls-verify -k .
     environment:
+      CERBERUS_UI_TAG: ${DRONE_COMMIT_SHA}
       DEPLOY_ENV: production
       KEYCLOAK_AUTH_URL:
         from_secret: PRODUCTION_KEYCLOAK_URL
