@@ -29,6 +29,13 @@ vars:
       apiVersion: v1
     fieldref:
       fieldpath: data.CERBERUS_UI_URL
+  - name: KUBE_NAMESPACE
+    objref:
+      kind: ConfigMap
+      name: config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.KUBE_NAMESPACE
   - name: CERBERUS_UI_TAG
     objref:
       kind: ConfigMap
