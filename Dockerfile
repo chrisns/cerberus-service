@@ -1,10 +1,8 @@
-FROM nginx as selfsignedcerts
+FROM nginx:1.21 as selfsignedcerts
 WORKDIR /certs
 RUN openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout /certs/tls.key -out /certs/tls.crt -subj "/C=UK/ST=example/L=example/O=example/CN=www.example.com"
 
-FROM node:10-alpine as builder
-
-RUN apk update && apk upgrade
+FROM node:14.17.1-alpine as builder
 
 WORKDIR /src
 
@@ -12,7 +10,9 @@ COPY package*.json ./
 RUN npm install
 COPY . /src/
 
-RUN npm run build
+RUN FORM_API_URL=foo \
+  REFDATA_API_URL=bar \
+  npm run build
 
 FROM nginx:1.21-alpine
 
