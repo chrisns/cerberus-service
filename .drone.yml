@@ -192,10 +192,6 @@ steps:
         from_secret: DEV_KUBE_SERVER
       KUBE_TOKEN:
         from_secret: DEV_CERBERUS_KUBE_TOKEN
-      NGINX_IMAGE:
-        from_secret: NGINX_IMAGE
-      NGINX_TAG:
-        from_secret: NGINX_TAG
       FORM_API_URL:
         from_secret: DEV_API_FORM_URL
       REFDATA_API_URL:
@@ -285,10 +281,6 @@ steps:
         from_secret: SIT_KUBE_SERVER
       KUBE_TOKEN:
         from_secret: SIT_CERBERUS_KUBE_TOKEN
-      NGINX_IMAGE:
-        from_secret: NGINX_IMAGE
-      NGINX_TAG:
-        from_secret: NGINX_TAG
       FORM_API_URL:
         from_secret: SIT_API_FORM_URL
       REFDATA_API_URL:
@@ -329,10 +321,6 @@ steps:
         from_secret: STAGING_KUBE_SERVER
       KUBE_TOKEN:
         from_secret: STAGING_CERBERUS_KUBE_TOKEN
-      NGINX_IMAGE:
-        from_secret: NGINX_IMAGE
-      NGINX_TAG:
-        from_secret: NGINX_TAG
       FORM_API_URL:
         from_secret: STAGING_API_FORM_URL
       REFDATA_API_URL:
@@ -373,10 +361,6 @@ steps:
         from_secret: PRODUCTION_KUBE_SERVER
       KUBE_TOKEN:
         from_secret: PRODUCTION_CERBERUS_KUBE_TOKEN
-      NGINX_IMAGE:
-        from_secret: NGINX_IMAGE
-      NGINX_TAG:
-        from_secret: NGINX_TAG
       FORM_API_URL:
         from_secret: PRODUCTION_API_FORM_URL
       REFDATA_API_URL:
