@@ -1,4 +1,4 @@
-FROM quay.io/ukhomeofficedigital/cop-cypress:6.3.0-node13
+FROM quay.io/ukhomeofficedigital/cop-cypress:7.7.0-node13
 # TODO: use an official cypress
 USER root
 COPY . /cerberus-service
