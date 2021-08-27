@@ -2,7 +2,7 @@ FROM nginx:1.21.1 as selfsignedcerts
 WORKDIR /certs
 RUN openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout /certs/tls.key -out /certs/tls.crt -subj "/C=UK/ST=example/L=example/O=example/CN=www.example.com"
 
-FROM node:14.17.1-alpine as builder
+FROM node:16.8.0-alpine as builder
 
 WORKDIR /src
 
