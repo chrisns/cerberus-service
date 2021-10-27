@@ -80,7 +80,7 @@
     "mochawesome-report-generator": "^5.2.0",
     "rimraf": "^3.0.2",
     "sass": "^1.32.2",
-    "sass-loader": "^10.1.0",
+    "sass-loader": "^12.3.0",
     "style-loader": "^2.0.0",
     "webpack": "^5.12.1",
     "webpack-cli": "^4.3.1",
