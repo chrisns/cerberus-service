@@ -1,4 +1,4 @@
-FROM nginx:1.21.1 as selfsignedcerts
+FROM nginx:1.21.4 as selfsignedcerts
 WORKDIR /certs
 RUN openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout /certs/tls.key -out /certs/tls.crt -subj "/C=UK/ST=example/L=example/O=example/CN=www.example.com"
 
@@ -14,7 +14,7 @@ RUN FORM_API_URL=foo \
   REFDATA_API_URL=bar \
   npm run build
 
-FROM nginx:1.21.1
+FROM nginx:1.21.4
 
 COPY --from=builder --chown=101 /src/dist/ /usr/share/nginx/html
 COPY --from=selfsignedcerts --chown=101 /certs /certs/
